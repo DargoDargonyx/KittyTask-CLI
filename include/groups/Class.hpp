@@ -8,22 +8,22 @@
 #include <cstdint>
 
 class Class : public Group {
-    public:
-        Class(const std::string& name, uint8_t year, 
-                const Semester& semester, const Topic& topic);
-        std::string getName() const override;
-        void setName(const std::string& name) override;
-        uint8_t getYear() const;
-        void setYear(uint8_t year);
-        Semester getSemester() const;
-        void setSemester(const Semester& semester);
-        Topic getTopic() const;
-        void setTopic(const Topic& topic);
     private:
-        std::string name;
         uint8_t year;
         Semester semester;
         Topic topic;
+        int grade;
+    public:
+        Class(int idNum, const std::string &name, uint8_t year, 
+                const Semester &semester, const Topic &topic);
+        uint8_t getYear() const;
+        void setYear(uint8_t year);
+        Semester getSemester() const;
+        void setSemester(const Semester &semester);
+        Topic getTopic() const;
+        void setTopic(const Topic &topic);
+        int getGrade() const;
+        void setGrade(int grade);
 };
 
 #endif // CLASS_H

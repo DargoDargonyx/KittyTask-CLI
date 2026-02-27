@@ -4,18 +4,24 @@
 #include <string>
 
 class Task {
-    public:
-        Task(const std::string& name, const std::string& date, bool status);
-        virtual std::string getName() const;
-        virtual void setName(const std::string& name);
-        virtual std::string getDate() const;
-        virtual void setDate(const std::string& date);
-        virtual bool getStatus() const;
-        virtual void setStatus(bool status);
     protected:
+        int idNum;
         std::string name;
         std::string date;
         bool status;
+        std::string type;
+    public:
+        Task(int idNum, const std::string &name, 
+                const std::string &date, bool status);
+        int getIdNum() const;
+        void setIdNum(int idNum);
+        std::string getName() const;
+        void setName(const std::string &name);
+        std::string getDate() const;
+        void setDate(const std::string &date);
+        bool getStatus() const;
+        void setStatus(bool status);
+        std::string getType() const; 
 };
 
 #endif //TASK_H

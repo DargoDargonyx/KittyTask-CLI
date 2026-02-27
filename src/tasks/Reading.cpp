@@ -1,28 +1,17 @@
 #include "tasks/Reading.hpp"
 
-Reading::Reading(const std::string& name, const std::string& date, 
-        bool status) : Task(name, date, status) {}
-
-std::string Reading::getName() const {
-    return name;
+Reading::Reading(int idNum, const std::string& name, 
+        const std::string& date, bool status) 
+    : Task(idNum, name, date, status) {
+       
+    this->type = "Reading";
+    this->grade = -1;
 }
 
-void Reading::setName(const std::string& name) {
-    this->name = name;
+uint8_t Quiz::getGrade() const {
+    return grade;
 }
 
-std::string Reading::getDate() const {
-    return date;
-}
-
-void Reading::setDate(const std::string& date) {
-    this->date = date;
-}
-
-bool Reading::getStatus() const {
-    return status;
-}
-
-void Reading::setStatus(bool status) {
-    this->status = status;
+void Quiz::setGrade(uint8_t grade) {
+    this->grade = grade;
 }

@@ -1,19 +1,12 @@
 #include "groups/Research.hpp"
 
-Research::Research(const std::string& name, uint8_t year, 
-        const Semester& semester, const Topic& topic) : Group(name) {
+Research::Research(int idNum, const std::string& name, uint8_t year, 
+        const Semester& semester, const Topic& topic) : Group(idNum, name) {
 
+    this->type = "Research";
     this->year = year;
     this->semester = semester;
     this->topic = topic;
-}
-
-std::string Research::getName() const {
-    return name;
-}
-
-void Research::setName(const std::string& name) {
-    this->name = name;
 }
 
 uint8_t Research::getYear() const {

@@ -1,33 +1,10 @@
 #include "tasks/Homework.hpp"
 
-Homework::Homework(const std::string& name, const std::string& date, 
-        bool status, uint8_t grade) : Task(name, date, status) {
-    
-    this->grade = grade;
-}
-
-std::string Homework::getName() const {
-    return name;
-}
-
-void Homework::setName(const std::string& name) {
-    this->name = name;
-}
-
-std::string Homework::getDate() const {
-    return date;
-}
-
-void Homework::setDate(const std::string& date) {
-    this->date = date;
-}
-
-bool Homework::getStatus() const {
-    return status;
-}
-
-void Homework::setStatus(bool status) {
-    this->status = status;
+Homework::Homework(int idNum, const std::string& name, const std::string& date, 
+        bool status) : Task(idNum, name, date, status) {
+   
+    this->type = "Homework";
+    this->grade = -1;
 }
 
 uint8_t Homework::getGrade() const {

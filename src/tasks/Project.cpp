@@ -1,33 +1,10 @@
 #include "tasks/Project.hpp"
 
-Project::Project(const std::string& name, const std::string& date, 
-        bool status, uint8_t grade) : Task(name, date, status) {
-    
-    this->grade = grade;
-}
+Project::Project(int idNum, const std::string& name, const std::string& date, 
+        bool status) : Task(idNum, name, date, status) {
 
-std::string Project::getName() const {
-    return name;
-}
-
-void Project::setName(const std::string& name) {
-    this->name = name;
-}
-
-std::string Project::getDate() const {
-    return date;
-}
-
-void Project::setDate(const std::string& date) {
-    this->date = date;
-}
-
-bool Project::getStatus() const {
-    return status;
-}
-
-void Project::setStatus(bool status) {
-    this->status = status;
+    this->type = "Project";
+    this->grade = -1;
 }
 
 uint8_t Project::getGrade() const {

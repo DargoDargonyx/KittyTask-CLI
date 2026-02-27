@@ -1,33 +1,10 @@
 #include "tasks/Quiz.hpp"
 
-Quiz::Quiz(const std::string& name, const std::string& date, 
-        bool status, uint8_t grade) : Task(name, date, status) {
-    
-    this->grade = grade;
-}
+Quiz::Quiz(int idNum, const std::string& name, const std::string& date, 
+        bool status) : Task(idNum, name, date, status) {
 
-std::string Quiz::getName() const {
-    return name;
-}
-
-void Quiz::setName(const std::string& name) {
-    this->name = name;
-}
-
-std::string Quiz::getDate() const {
-    return date;
-}
-
-void Quiz::setDate(const std::string& date) {
-    this->date = date;
-}
-
-bool Quiz::getStatus() const {
-    return status;
-}
-
-void Quiz::setStatus(bool status) {
-    this->status = status;
+    this->type = "Quiz";
+    this->grade = -1;
 }
 
 uint8_t Quiz::getGrade() const {

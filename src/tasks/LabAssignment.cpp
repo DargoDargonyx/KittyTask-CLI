@@ -1,33 +1,10 @@
 #include "tasks/LabAssignment.hpp"
 
-LabAssignment::LabAssignment(const std::string& name, const std::string& date, 
-        bool status, uint8_t grade)  : Task(name, date, status) {
-    
-    this->grade = grade;
-}
-
-std::string LabAssignment::getName() const {
-    return name;
-}
-
-void LabAssignment::setName(const std::string& name) {
-    this->name = name;
-}
-
-std::string LabAssignment::getDate() const {
-    return date;
-}
-
-void LabAssignment::setDate(const std::string& date) {
-    this->date = date;
-}
-
-bool LabAssignment::getStatus() const {
-    return status;
-}
-
-void LabAssignment::setStatus(bool status) {
-    this->status = status;
+LabAssignment::LabAssignment(int idNum, const std::string& name, const std::string& date, 
+        bool status)  : Task(idNum, name, date, status) {
+   
+    this->type = "LabAssignment";
+    this->grade = -1;
 }
 
 uint8_t LabAssignment::getGrade() const {

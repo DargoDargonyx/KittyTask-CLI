@@ -1,19 +1,12 @@
 #include "groups/SelfStudy.hpp"
 
-SelfStudy::SelfStudy(const std::string& name, uint8_t year, 
-        const Semester& semester, const Topic& topic) : Group(name) {
+SelfStudy::SelfStudy(int idNum, const std::string& name, uint8_t year, 
+        const Semester& semester, const Topic& topic) : Group(idNum, name) {
 
+    this->type = "SelfStudy";
     this->year = year;
     this->semester = semester;
     this->topic = topic;
-}
-
-std::string SelfStudy::getName() const {
-    return name;
-}
-
-void SelfStudy::setName(const std::string& name) {
-    this->name = name;
 }
 
 uint8_t SelfStudy::getYear() const {

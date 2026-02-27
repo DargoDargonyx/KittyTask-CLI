@@ -7,18 +7,16 @@
 #include <cstdint>
 
 class DevWork : public Group {
+    private:
+        uint8_t year;
+        Topic topic;
     public:
-        DevWork(const std::string& name, uint8_t year, const Topic& topic);
-        std::string getName() const override;
-        void setName(const std::string& name) override;
+        DevWork(int idNum, const std::string &name, 
+                uint8_t year, const Topic &topic);
         uint8_t getYear() const;
         void setYear(uint8_t year);
         Topic getTopic() const;
-        void setTopic(const Topic& topic);
-    private:
-        std::string name;
-        uint8_t year;
-        Topic topic;
+        void setTopic(const Topic &topic);
 };
 
 #endif //DEVWORK_H

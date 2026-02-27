@@ -8,22 +8,19 @@
 #include <cstdint>
 
 class Research : public Group {
-    public:
-        Research(const std::string& name, uint8_t year, 
-                const Semester& semester, const Topic& topic);
-        std::string getName() const override;
-        void setName(const std::string& name) override;
-        uint8_t getYear() const;
-        void setYear(uint8_t year);
-        Semester getSemester() const;
-        void setSemester(const Semester& semester);
-        Topic getTopic() const;
-        void setTopic(const Topic& topic);
-    private:
-        std::string name;
+     private:
         uint8_t year;
         Semester semester;
         Topic topic;
+    public:
+        Research(int idNum, const std::string &name, uint8_t year, 
+                const Semester &semester, const Topic &topic);
+        uint8_t getYear() const;
+        void setYear(uint8_t year);
+        Semester getSemester() const;
+        void setSemester(const Semester &semester);
+        Topic getTopic() const;
+        void setTopic(const Topic &topic);
 };
 
 #endif //RESEARCH_H
