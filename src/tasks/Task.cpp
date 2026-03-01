@@ -11,7 +11,7 @@ int Task::getIdNum() const {
     return idNum;
 }
 
-void Task::setIdNum() {
+void Task::setIdNum(int idNum) {
     this->idNum = idNum;
 }
 

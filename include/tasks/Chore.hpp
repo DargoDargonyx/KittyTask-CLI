@@ -6,8 +6,12 @@
 
 class Chore : public Task {
     public:
-        Chore(int idNum, const std::string &name, 
-                const std::string &date, bool status);
+        Chore(
+            int idNum, 
+            const std::string& name, 
+            const std::string& date, 
+            bool status
+        );
 };
 
 #endif //CHORE_H

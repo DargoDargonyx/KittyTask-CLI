@@ -12,7 +12,7 @@ uint8_t DevWork::getYear() const {
     return year;
 }
 
-void DevWork::setYear() {
+void DevWork::setYear(uint8_t year) {
     this->year = year;
 }
 

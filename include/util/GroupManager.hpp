@@ -6,28 +6,30 @@
 #include "tasks/Task.hpp"
 #include <string>
 #include <vector>
+#include <memory>
 
 using json = nlohmann::json;
 
-class GroupManager:
+class GroupManager {
     private:
         std::string filepath;
         json data;
-        std::vector<Group> groups;
-        checkDataDirectory();
+        std::vector<std::unique_ptr<Group>> groups;
+        void checkDataDirectory();
         void loadGroupData();
         void saveGroupData();
-        Group buildGroup(const int groupId);
-        Task buildTask(const json taskfile, const int taskId);
+        std::unique_ptr<Group> buildGroup(const int groupId);
+        std::unique_ptr<Task> buildTask(const json& taskfile, const int taskId);
         Semester jsonStrToSemester(const int groupId);
         Topic jsonStrToTopic(const int groupId);
         std::string semesterToJsonStr(const Semester &semester);
         std::string topicToJsonStr(const Topic &topic);
     public:
-        GroupManager(const std::string &filepath);
-        std::vector<Task> getGroups() const;
-        void setGroups(const std::vector<Group> &groups);
-        void addGroup(const Group &group);
-        void removeGroup(Group group);
+        GroupManager(const std::string& filepath);
+        const std::vector<std::unique_ptr<Group>>& getGroups() const;
+        void setGroups(std::vector<std::unique_ptr<Group>>&& newGroups);
+        void addGroup(std::unique_ptr<Group> newGroup);
+        void removeGroup(int groupId);
+};
 
 #endif //GROUPMANAGER_H

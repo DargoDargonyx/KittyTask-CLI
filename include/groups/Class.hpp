@@ -14,16 +14,22 @@ class Class : public Group {
         Topic topic;
         int grade;
     public:
-        Class(int idNum, const std::string &name, uint8_t year, 
-                const Semester &semester, const Topic &topic);
+        Class(
+            int idNum, 
+            const std::string& name, 
+            uint8_t year, 
+            const Semester& semester, 
+            const Topic& topic,
+            uint8_t grade
+        );
         uint8_t getYear() const;
         void setYear(uint8_t year);
         Semester getSemester() const;
-        void setSemester(const Semester &semester);
+        void setSemester(const Semester& semester);
         Topic getTopic() const;
-        void setTopic(const Topic &topic);
-        int getGrade() const;
-        void setGrade(int grade);
+        void setTopic(const Topic& topic);
+        uint8_t getGrade() const;
+        void setGrade(uint8_t grade);
 };
 
 #endif // CLASS_H

@@ -6,8 +6,6 @@ Group::Group(int idNum, const std::string& name)
     : idNum(idNum), name(name) {
 
     this->type = "Default";
-    int[DEFAULT_INITIAL_LIST_CAP] lst = {0};
-    this->taskList = lst;
 }
 
 int Group::getIdNum() const {
@@ -34,21 +32,27 @@ void Group::setTasks(const std::vector<Task> &tasks) {
     this->tasks = tasks;
 }
 
-int[] Group::getTaskList() const {
-    return taskList;
+void Group::addTask(std::unique_ptr<Task> newTask) {
+
+    Task task = *newTask;
+    tasks.push_back(task);
+    taskIdList.push_back(task.getIdNum());
+    refreshTaskIdList();
+}
+
+void Group::removeTask(int taskId) {}
+
+std::vector<int> Group::getTaskIdList() const {
+    return taskIdList;
 }
 
 std::string Group::getType() const {
     return type;
 }
 
-void Group::refreshTaskList() {
+void Group::refreshTaskIdList() {
     
-    if (tasksList.length < tasks.size()) {
-        int[(taskList.length * 2) + 1] lst = {0}
-        this->taskList = lst;
-    }
     for (int i = 0; i < tasks.size(); i++) {
-        taskList[i] = tasks.at(i);
+        taskIdList[i] = tasks[i].getIdNum();
     }
 }

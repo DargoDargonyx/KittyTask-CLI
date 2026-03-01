@@ -13,14 +13,19 @@ class Research : public Group {
         Semester semester;
         Topic topic;
     public:
-        Research(int idNum, const std::string &name, uint8_t year, 
-                const Semester &semester, const Topic &topic);
+        Research(
+            int idNum, 
+            const std::string& name, 
+            uint8_t year, 
+            const Semester& semester, 
+            const Topic& topic
+        );
         uint8_t getYear() const;
         void setYear(uint8_t year);
         Semester getSemester() const;
-        void setSemester(const Semester &semester);
+        void setSemester(const Semester& semester);
         Topic getTopic() const;
-        void setTopic(const Topic &topic);
+        void setTopic(const Topic& topic);
 };
 
 #endif //RESEARCH_H

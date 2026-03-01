@@ -1,12 +1,14 @@
 #include "groups/Class.hpp"
 
-Class::Class(int idNum, const std::string& name, uint8_t year, 
-        const Semester& semester, const Topic& topic) : Group(idNum, name) {
+Class::Class(int idNum, const std::string& name, 
+        uint8_t year, const Semester& semester, 
+        const Topic& topic, uint8_t grade) : Group(idNum, name) {
 
     this->type = "Class";
     this->year = year;
     this->semester = semester;
     this->topic = topic;
+    this->grade = grade;
 }
 
 uint8_t Class::getYear() const {
@@ -31,4 +33,12 @@ Topic Class::getTopic() const {
 
 void Class::setTopic(const Topic& topic) {
     this->topic = topic;
+}
+
+uint8_t Class::getGrade() const {
+    return grade;
+}
+
+void Class::setGrade(uint8_t grade) {
+    this->grade = grade;
 }
